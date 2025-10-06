@@ -1,7 +1,8 @@
 from django.urls import path, include, re_path
 from django.contrib import admin
 from django.views.generic.base import RedirectView
-
+from django.conf.urls.static import static
+from django.conf import settings
 from rest_framework import routers
 
 from dictionary import views
@@ -24,3 +25,4 @@ urlpatterns = [
     path('api/init-dict/', views.init_dict),
     path('api/', include(router.urls)),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

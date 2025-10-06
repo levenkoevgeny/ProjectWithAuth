@@ -28,8 +28,14 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:8080",
     "http://127.0.0.1:3000",
-    "http://127.0.0.1:8080"
+    "http://127.0.0.1:8080",
+    "http://127.0.0.1:1338",
+    "http://localhost:1338",
+    "http://127.0.0.1:1337",
+    "http://localhost:1337",
 ]
+
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8080"]
 
 OAUTH2_PROVIDER = {
     'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
@@ -99,12 +105,35 @@ AUTH_USER_MODEL = 'dictionary.CustomUser'
 
 WSGI_APPLICATION = 'ProjectWithAuth.wsgi.application'
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
+# DATABASES = {
+#      'default': {
+#          "ENGINE": "django.db.backends.postgresql",
+#          'NAME': os.getenv('DATABASE_NAME'),
+#          'USER': os.getenv('DATABASE_USERNAME'),
+#          'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+#          'HOST': os.getenv('DATABASE_HOST'),
+#          'PORT': os.getenv('DATABASE_PORT'),
+#      }
+#  }
+
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+     'default': {
+         "ENGINE": "django.db.backends.postgresql",
+         'NAME': 'wordstrainer',
+         'USER': 'dbuser',
+         'PASSWORD': 'P@ssw0rd',
+         'HOST': 'localhost',
+         'PORT': 5433,
+     }
+ }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
