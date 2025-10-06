@@ -127,11 +127,11 @@ WSGI_APPLICATION = 'ProjectWithAuth.wsgi.application'
 DATABASES = {
      'default': {
          "ENGINE": "django.db.backends.postgresql",
-         'NAME': 'wordstrainer',
-         'USER': 'dbuser',
-         'PASSWORD': 'P@ssw0rd',
-         'HOST': 'localhost',
-         'PORT': 5433,
+         'NAME': os.getenv('DATABASE_NAME'),
+         'USER': os.getenv('DATABASE_USERNAME'),
+         'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+         'HOST': os.getenv('DATABASE_HOST'),
+         'PORT': os.getenv('DATABASE_PORT'),
      }
  }
 
